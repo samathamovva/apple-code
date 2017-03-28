@@ -1,0 +1,41 @@
+{
+	"buddies":[
+    {
+      "userName": "Alex123",
+      "firstName": "Alex",
+      "lastName" : "johnson",
+      "birthday": "1/1/2011",
+      "status": "Available",
+      "email" :"alex@gmail.com",
+      "lastSignInDate" : "3/3/2017"
+    },
+    {
+      "userName": "Meghan234",      
+      "firstName": "Meghan",
+      "lastName" : "williams",
+      "birthday": "2/2/2011",
+      "status": "Busy",
+      "email" :"meghan@gmail.com",
+      "lastSignInDate" : "3/3/2017"
+
+    },
+    {
+      "userName": "patrick345",
+      "firstName": "patrick",
+      "lastName" : "phillips",
+      "birthday": "3/3/2011",
+      "status": "Idle",
+      "email" :"patrick@gmail.com",
+      "lastSignInDate" : "3/3/2017"
+    },
+    {
+      "userName": "mike456",
+      "firstName": "mike",
+      "lastName" : "miller ",
+      "birthday": "3/3/1985",
+      "status": "Offline",
+      "email" :"mike@gmail.com",
+      "lastSignInDate" : "3/3/2017"
+    }
+  ]
+}

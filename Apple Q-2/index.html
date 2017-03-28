@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-confirm/1.2.6/angular-confirm.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body ng-controller="buddies">
+    <div >
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8 col-md-onset-2">
+          <h3>Buddy's List</h3>
+          <input type="text" ng-model="searchFilter" style="width:250px;" class="form-control" placeholder="filter">
+          <br><br>
+          <div class="well table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                <th>S.No</th>
+                <th ng-click="changeSorting('userName')">USERNAME
+                   <i class="glyphicon" ng-class="getIcon('userName')"></i>
+                </th>
+                <th ng-click="changeSorting('firstName')">FIRSTNAME
+                <i class="glyphicon" ng-class="getIcon('firstName')"></i>
+                </th>
+                <th ng-click="changeSorting('lastName')">LASTNAME
+                  <i class="glyphicon" ng-class="getIcon('lastName')"></i>
+                </th>
+                <th ng-click="changeSorting('status')">STATUS
+                  <i class="glyphicon" ng-class="getIcon('status')"></i>
+                </th>
+              </tr>
+              </thead>
+              <tbody ng-repeat="buddy in buddies |filter:searchFilter | orderBy:sort.active:sort.descending " class="clickableRow">
+              <tr ng-if="buddies.length == 0">
+                <td> <strong>No records to show...</strong></td>
+              </tr>
+                <tr >
+                  <td>{{$index+1}}</td>
+                  <td>{{buddy.userName}}</td>
+                  <td>{{buddy.firstName}}</td>
+                  <td>{{buddy.lastName}}</td>
+                  <td>{{buddy.status}}</td>
+                  <td><button class="btn btn-primary" style="font-size: 18px" ng-click="showMoreDetails($index,buddy.userName)" title="View More">+</button></td>
+                  <td><button class="btn btn-danger" ng-click="deleteBuddy($index+1,buddy.userName)" title="Delete User">Delete</button></td>
+                </tr>
+                <tr>
+                  <td colspan="8" style="padding:0">
+                    <div uib-collapse="!closeAllBuddies[$index+''+buddy.userName]" >
+                      <div class="row">
+                        <div class="col-md-offset-2 col-md-onset-2 col-md-8">
+                          <table class="table table-striped">
+                            <tr style="color:green">
+                              <th >BIRTHDAY</th>
+                              <th>EMAIL</th>
+                              <th ng-if="buddy.status == 'Offline' ">LAST SIGN IN DATE</th>
+                            </tr>                        
+                            <tr>
+                              <td >{{buddy.birthday}}</td>
+                              <td >{{buddy.email}}</td>
+                              <td  ng-if="buddy.status == 'Offline' ">{{buddy.lastSignInDate}}</td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>                     
+                    </div>
+                  </td>                  
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>   
+    </div>
+  </body>
+  <script src="script.js"></script>
+
+</html>
