@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <!--        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.3/angular-material.js"></script>-->
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <style>
+            .warningMessage{
+                color: red;
+            }
+            .warningMessage{
+                opacity: 1;
+                transition: all linear .25s; 
+            }
+        </style>
+    </head>
+    <body ng-app="datepickerBasicUsage" ng-controller="AppCtrl">
+        <form name="myForm">
+            <table class="table table-hover">
+                <tr>
+                    <h2>Please Signup Below</h2>
+                </tr>
+                <tr>
+                    <div>
+                        <td>Username:</td>
+                        <td>
+                            <input name="username" type="email" ng-model="userObj.username" required><br>
+                            <span class="warningMessage" ng-show="myForm.username.$touched && myForm.username.$invalid">Please enter a valid e-mail.</span>
+                        </td>
+                    </div>
+                </tr>
+
+                <tr>
+                    <div>
+                        <td>Password:</td>
+                        <td>
+                            <input name="password" type="password" ng-model="userObj.password" required><br>
+                            <span class="warningMessage" ng-show="myForm.password.$touched && myForm.password.$invalid">Password is required.</span>
+                        </td>
+                    </div>
+                </tr>
+                <tr>
+                    <div>
+                        <td>Confirm Password:</td>
+                        <td>
+                            <input name="cfrmpass" type="password" ng-model="userObj.cfrmpass" required><br>
+                            <span class="warningMessage" ng-show="myForm.cfrmpass.$touched && myForm.cfrmpass.$invalid">Please confirm password.</span>
+                        </td>
+                    </div>
+                </tr>
+                <tr>
+                    <div>
+                        <td>First & Lastname:</td>
+                        <td>
+                            <input name="fandlname" type="text" ng-model="userObj.fandlname" required><br>
+                            <span class="warningMessage" ng-show="myForm.fandlname.$touched && myForm.fandlname.$invalid">Firstname and Lastname is required.</span>
+                        </td>
+                    </div>
+                </tr>
+                <tr>
+                    <div>
+                        <td>Date of Birth:</td>
+                        <td>
+                            <div  ng-cloak>
+                                <md-content layout-padding>
+                                    <div layout-gt-xs="row">
+                                        <div flex-gt-xs>
+                                            <md-datepicker ng-model="userObj.dob" md-placeholder="Enter date" required></md-datepicker>
+                                            <span class="warningMessage" ng-show="myForm.dob.$touched && myForm.dob.$invalid">DOB is required.</span>
+                                        </div>
+                                    </div>
+                                </md-content>
+                            </div>                            
+                        </td>
+                    </div>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="btn btn-info" type="button" ng-disabled="myForm.$invalid" ng-click="getUserDetails()" value="Submit">
+
+                    </td>
+                </tr>
+                <!--
+<tr>
+<div  ng-cloak>
+<md-content layout-padding>
+<div layout-gt-xs="row">
+<div flex-gt-xs>
+<h4>Standard date-picker</h4>
+<md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+</div>
+</div>
+</md-content>
+</div>
+</tr>
+-->
+
+            </table>
+        </form>
+        <script src="app.js"></script>
+
+    </body>
+</html>
